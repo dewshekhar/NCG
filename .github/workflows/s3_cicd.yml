@@ -1,5 +1,4 @@
 name: Deploy to S3 Website
-
 on:
   push:
     branches:
