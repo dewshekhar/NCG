@@ -1,18 +1,25 @@
-const form = document.querySelector('form');
-const greeting = document.querySelector('#greeting');
+// script.js
 
-form.addEventListener('submit', (event) => {
-	event.preventDefault();
-	const name = document.querySelector('#name').value;
-	greeting.textContent = `Hello, ${name}!`;
+// Wait for DOM to load
+document.addEventListener('DOMContentLoaded', () => {
+    const submitBtn = document.getElementById('submit-btn');
+    const nameInput = document.getElementById('name');
+    const greeting = document.getElementById('greeting');
+
+    // Handle button click
+    submitBtn.addEventListener('click', () => {
+        const userName = nameInput.value.trim();
+        if (userName) {
+            greeting.textContent = `Hello, ${userName}! Welcome to DevOps Training.`;
+        } else {
+            greeting.textContent = 'Please enter your name to receive a greeting.';
+        }
+    });
+
+    // View Counter (Mock Example)
+    const counter = document.querySelector('.counter-number');
+    let views = localStorage.getItem('views') || 0;
+    views++;
+    localStorage.setItem('views', views);
+    counter.textContent = `Views: ${views}`;
 });
-
-const counter = document.querySelector(".counter-number");
-async function updateCounter() {
-    let response = await fetch(
-        "https://o73g5ptpujgtclinhzhhneplje0jogoh.lambda-url.us-east-1.on.aws/"
-    );
-    let data = await response.json();
-    counter.innerHTML = `Views: ${data}`;
-}
-updateCounter();
