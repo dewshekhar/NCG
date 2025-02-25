@@ -21,7 +21,7 @@ jobs:
 
       - name: Sync Files to S3
         run: |
-          aws s3 sync ./ s3://serverlesswebappsaikiran/ --delete --acl public-read
+          aws s3 sync ./ s3://serverlesswebappsaikiran/ --delete
 
       - name: Post-Deployment Success
         run: echo "🎉 Website deployed to S3 successfully! Access it via the S3 Website URL."
