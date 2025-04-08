@@ -54,7 +54,7 @@ permissions:
 
 jobs:
   terraform:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     container:
       image: hashicorp/terraform:1.6.3 # Use Terraform Docker image
